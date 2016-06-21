@@ -59,13 +59,25 @@ class Nil[T] extends List[T] {
 }
 
 def nth[T](index: Int, aList: List[T]): T =
-  if (index == 0) aList.head
+  if (aList.isEmpty) throw new IndexOutOfBoundsException
+  else if (index == 0) aList.head
   else nth(index - 1, aList.tail)
 
-val l = Cons(1, new Cons(2, new Cons(3, new Nil)))
+val l = new Cons(1, new Cons(2, new Cons(3, new Nil)))
 
 
-nth(2)
+nth(2, l)
+
+nth(4, l)
+
+
+
+
+
+
+
+
+
 
 
 
